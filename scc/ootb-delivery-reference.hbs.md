@@ -1,4 +1,6 @@
-# Delivery reference
+# Delivery reference for Supply Chain Choreographer
+
+This topic describes the delivery parameters and templates you can use with Supply Chain Choreographer.
 
 Tanzu Application Platform includes one delivery package,
 which installs a single [ClusterDelivery](https://cartographer.sh/docs/v0.6.0/reference/deliverable/#clusterdelivery).
