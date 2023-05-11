@@ -1,4 +1,4 @@
-# Release notes
+# Tanzu Application Platform release notes
 
 This topic contains release notes for Tanzu Application Platform v1.5.
 
@@ -138,8 +138,8 @@ This release has the following known issues, listed by component and area.
 
 #### <a id='1-5-1-scst-store'></a> SCST - Store
 
-- In TAP 1.5.1, attempting to deploy the Store with AMR does not work. When installing TAP, under `amr` in 
-  the `metadata_store` section, specifying `deploy: true` is supposed to deploy AMR along with the Store. 
+- In TAP 1.5.1, attempting to deploy the Store with AMR does not work. When installing TAP, under `amr` in
+  the `metadata_store` section, specifying `deploy: true` is supposed to deploy AMR along with the Store.
   However, this is not the case with TAP 1.5.1. This is a known bug and will be fixed in future releases.
 
 ---
