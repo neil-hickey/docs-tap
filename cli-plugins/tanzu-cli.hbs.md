@@ -50,18 +50,28 @@ To install a Tanzu CLI plug-in that was not automatically downloaded when runnin
 
    ```console
    tanzu plugin list
+   ```
 
-  NAME                DESCRIPTION                                                        SCOPE       DISCOVERY  VERSION  STATUS
-  login               Login to the platform                                              Standalone  default    v0.28.1  not installed
-  management-cluster  Kubernetes management-cluster operations                           Standalone  default    v0.28.1  not installed
-  package             Tanzu package management                                           Standalone  default    v0.28.1  installed
-  pinniped-auth       Pinniped authentication operations (usually not directly invoked)  Standalone  default    v0.28.1  not installed
-  secret              Tanzu secret management                                            Standalone  default    v0.28.1  installed
-  telemetry           Configure cluster-wide telemetry settings                          Standalone  default    v0.28.1  not installed
-  services            Commands for working with service instances, classes and claims    Standalone             v0.5.0   installed
-  accelerator         Manage accelerators in a Kubernetes cluster                        Standalone             v1.4.1   installed
-  apps                Applications on Kubernetes                                         Standalone             v0.10.0  installed
-  insight             post & query image, package, source, and vulnerability data        Standalone             v1.4.3   installed
+  Expected outcome:
+
+   ```console
+
+   NAME                DESCRIPTION                                                        TARGET      DISCOVERY  VERSION        STATUS
+   accelerator         Manage accelerators in a Kubernetes cluster                                               v1.5.0         installed
+   apps                Applications on Kubernetes                                                                v0.11.1        installed
+   builder             Build Tanzu components                                                                    v0.25.0        installed
+   codegen             Tanzu code generation tool                                                                v0.25.0        installed
+   external-secrets    interacts with external-secrets.io resources                                              v0.1.0-beta.4  installed
+   insight             post & query image, package, source, and vulnerability data                               v1.5.0         installed
+   isolated-cluster    isolated-cluster operations                                                    default    v0.28.1        not installed
+   login               Login to the platform                                                          default    v0.26.0-dev    update available
+   pinniped-auth       Pinniped authentication operations (usually not directly invoked)              default    v0.26.0-dev    update available
+   services            Commands for working with service instances, classes and claims                           v0.6.0         installed
+   test                Test the CLI                                                                              v0.25.0        installed
+   management-cluster  Kubernetes management-cluster operations                           kubernetes  default    v0.26.0-dev    installed
+   package             Tanzu package management                                           kubernetes  default    v0.28.1        installed
+   secret              Tanzu secret management                                            kubernetes  default    v0.28.1        installed
+   telemetry           Configure cluster-wide telemetry settings                          kubernetes  default    v0.26.0-dev    installed
    ```
 
 ## <a id="install-local"></a> Install Local Plugins
@@ -83,16 +93,21 @@ For example, the `tar -xvf` command.
 4. Verify that you installed the plug-ins successfully by running:
 
    ```console
-   tanzu plugin list
-    NAME                DESCRIPTION                                                        SCOPE       DISCOVERY  VERSION  STATUS
-  login               Login to the platform                                              Standalone  default    v0.28.1  not installed
-  management-cluster  Kubernetes management-cluster operations                           Standalone  default    v0.28.1  not installed
-  package             Tanzu package management                                           Standalone  default    v0.28.1  installed
-  pinniped-auth       Pinniped authentication operations (usually not directly invoked)  Standalone  default    v0.28.1  not installed
-  secret              Tanzu secret management                                            Standalone  default    v0.28.1  installed
-  telemetry           Configure cluster-wide telemetry settings                          Standalone  default    v0.28.1  not installed
-  services            Commands for working with service instances, classes and claims    Standalone             v0.5.0   installed
-  accelerator         Manage accelerators in a Kubernetes cluster                        Standalone             v1.4.1   installed
-  apps                Applications on Kubernetes                                         Standalone             v0.10.0  installed
-  insight             post & query image, package, source, and vulnerability data        Standalone             v1.4.3   installed
+
+   NAME                DESCRIPTION                                                        TARGET      DISCOVERY  VERSION        STATUS
+   accelerator         Manage accelerators in a Kubernetes cluster                                               v1.5.0         installed
+   apps                Applications on Kubernetes                                                                v0.11.1        installed
+   builder             Build Tanzu components                                                                    v0.25.0        installed
+   codegen             Tanzu code generation tool                                                                v0.25.0        installed
+   external-secrets    interacts with external-secrets.io resources                                              v0.1.0-beta.4  installed
+   insight             post & query image, package, source, and vulnerability data                               v1.5.0         installed
+   isolated-cluster    isolated-cluster operations                                                    default    v0.28.1        not installed
+   login               Login to the platform                                                          default    v0.26.0-dev    update available
+   pinniped-auth       Pinniped authentication operations (usually not directly invoked)              default    v0.26.0-dev    update available
+   services            Commands for working with service instances, classes and claims                           v0.6.0         installed
+   test                Test the CLI                                                                              v0.25.0        installed
+   management-cluster  Kubernetes management-cluster operations                           kubernetes  default    v0.26.0-dev    installed
+   package             Tanzu package management                                           kubernetes  default    v0.28.1        installed
+   secret              Tanzu secret management                                            kubernetes  default    v0.28.1        installed
+   telemetry           Configure cluster-wide telemetry settings                          kubernetes  default    v0.26.0-dev    installed
    ```
