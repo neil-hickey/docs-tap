@@ -19,5 +19,5 @@ a variable set of ingress endpoints:
   for example, Cloud Native Runtimes and Application Single Sign-On.
 
 >**Note** You can use a mixed approach for configuring TLS for components.
->For example, use a shared ingress issuer, but override TLS configuration for select
+>For example, you can use a shared ingress issuer, but override TLS configuration for select
 >components while using wildcard certificates for some.
