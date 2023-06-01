@@ -190,7 +190,7 @@ The following sections describe how to create these values files.
     AGE-SECRET-KEY-my-secret-key
     ```
 
-1. Create a plain YAML file `tap-sensitive-values.yaml` that contains a placeholder
+1. Create a plain YAML file `<GIT-REPO-ROOT>/clusters/<CLUSTER-NAME>/cluster-config/sensitive-values/tap-sensitive-values.yaml` that contains a placeholder
 for the sensitive portion of Tanzu Application Platform values:
 
     ```yaml
@@ -224,18 +224,6 @@ for the sensitive portion of Tanzu Application Platform values:
     sops tap-sensitive-values.sops.yaml
     ```
 
-1. Move the sensitive Tanzu Application Platform values into the cluster config:
-
-    ```console
-    mv tap-sensitive-values.sops.yaml <GIT-REPO-ROOT>/clusters/<CLUSTER-NAME>/cluster-config/values/
-    ```
-
-    Example:
-
-    ```console
-    mv tap-sensitive-values.sops.yaml $HOME/tap-gitops/clusters/full-tap-cluster/cluster-config/values/
-    ```
-
 1. (Optional) Retain the Age identity key file in a safe and secure place such as a password manager,
 and purge the scratch space:
 
@@ -265,7 +253,7 @@ tap_install:
 ## <a id='update-sensitive-tap-values'></a> Updating sensitive Tanzu Application Platform values
 
 After filling in the non-sensitive values, follow these steps to extract the sensitive values
-into `tap-sensitive-values.sops.yaml` that you prepared earlier:
+into `<GIT-REPO-ROOT>/clusters/<CLUSTER-NAME>/cluster-config/sensitive-values/tap-sensitive-values.yaml` that you prepared earlier:
 
 1. Open an editor through SOPS to edit the encrypted sensitive values file:
 
@@ -374,7 +362,7 @@ Follow these steps to generate the Tanzu Application Platform installation and T
 
     ```console
     git add cluster-config/ tanzu-sync/
-    git commit -m "Configure install of TAP 1.5.0"
+    git commit -m "Configure install of TAP 1.6.0"
     git push
     ```
 
