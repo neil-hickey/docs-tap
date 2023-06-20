@@ -1,6 +1,7 @@
 # Tanzu Application Platform release notes
 
-This topic contains release notes for Tanzu Application Platform v1.5.
+This topic describes the changes in Tanzu Application Platform (commonly known as TAP)
+v{{ vars.url_version }}.
 
 ## <a id='1-5-2'></a> v1.5.2
 
@@ -10,9 +11,32 @@ This topic contains release notes for Tanzu Application Platform v1.5.
 
 This release has the following security fixes, listed by component and area.
 
-#### <a id='1-5-2-COMPONENT-NAME-fixes'></a> COMPONENT-NAME
-
-- Security fix description.
+<table>
+<tr>
+<th>Package Name</th>
+<th>Vulnerabilities Resolved</th>
+</tr>
+<tr>
+<td>buildservice.tanzu.vmware.com</td>
+<td><ul>
+  <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-1281">CVE-2023-1281</a></li>
+  <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-1829">CVE-2023-1829</a></li>
+  <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-0386">CVE-2023-0386</a></li>
+</ul></td>
+</tr>
+<tr>
+<td>cert-manager.tanzu.vmware.com</td>
+<td><ul><li>GHSA-vvpx-j8f3-3w6h </li></ul></td>
+</tr>
+<tr>
+<td>sso.apps.tanzu.vmware.com</td>
+<td><ul><li><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-31484">CVE-2023-31484</a></li></ul></td>
+</tr>
+<tr>
+<td>tap-gui.tanzu.vmware.com</td>
+<td><ul><li>GHSA-f9xv-q969-pqx4 </li></ul></td>
+</tr>
+</table>
 
 ---
 
@@ -20,24 +44,43 @@ This release has the following security fixes, listed by component and area.
 
 The following issues, listed by component and area, are resolved in this release.
 
-#### <a id='1-5-2-COMPONENT-NAME-ri'></a> COMPONENT-NAME
-
-- Resolved issue description.
-
 #### <a id='1-5-2-scst-scan-ri'></a> Supply Chain Security Tools (SCST) - Scan
 
 - Old `TaskRuns` associated with scans are now deleted to reduce memory consumption.
 - Added support for `ConfigMaps` in custom `ScanTemplates`.
 
+#### <a id='1-5-2-tap-gui-ri'></a> Tanzu Application Platform GUI
+
+- Simplified the default content security policy to remove violations from `fonts.googleapis.com`.
+
+#### <a id="1-5-2-tap-gui-plug-in-ri"></a> Tanzu Application Platform GUI plug-ins
+
+- **Security Analysis GUI plug-in:**
+  - **CVE Details:** The impacted workload count in the widget now matches the table.
+  - **Security Analysis Dashboard:** The Highest Reach Critical Vulnerabilities chart no longer
+    overlaps Snyk CVE IDs.
+  - **Package Details:** Removed extra versions from Workload Builds using Package table.
+
+#### <a id='1-5-2-intellij-ext-ri'></a> Tanzu Developer Tools for IntelliJ
+
+- Resolved permission-denied errors encountered during Live Update when operating against platforms
+  configured to use the Jammy build stack.
+
+#### <a id='1-5-2-vs-ext-ri'></a> Tanzu Developer Tools for Visual Studio
+
+- Resolved permission-denied errors encountered during Live Update when operating against platforms
+  configured to use the Jammy build stack.
+
+#### <a id='1-5-2-vscode-ext-ri'></a> Tanzu Developer Tools for VS Code
+
+- Resolved permission-denied errors encountered during Live Update when operating against platforms
+  configured to use the Jammy build stack.
+
 ---
 
 ### <a id='1-5-2-known-issues'></a> Known issues
 
-This release has the following known issues, listed by component and area.
-
-#### <a id='1-5-2-COMPONENT-NAME-ki'></a> COMPONENT-NAME
-
-- Known issue description with link to workaround.
+This release introduces no new known issues.
 
 ---
 

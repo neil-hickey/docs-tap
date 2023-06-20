@@ -39,7 +39,7 @@ Tanzu Application Platform to store images.
 
 There are some optional but recommended DNS records you must allocate if you decide to use these particular components:
 
-- Cloud Native Runtimes (knative): Allocate a wildcard subdomain for your developer's applications. This is specified in the `shared.ingress_domain` key of the `tap-values.yaml` configuration file that you input with the installation. This wildcard must be pointed at the external IP address of the `tanzu-system-ingress`'s `envoy` service. See [Access with the shared Ingress method](tap-gui/accessing-tap-gui.html#ingress-method) for more information about `tanzu-system-ingress`.
+- Cloud Native Runtimes (Knative): Allocate a wildcard subdomain for your developer's applications. This is specified in the `shared.ingress_domain` key of the `tap-values.yaml` configuration file that you input with the installation. This wildcard must be pointed at the external IP address of the `tanzu-system-ingress`'s `envoy` service. See [Access with the shared Ingress method](tap-gui/accessing-tap-gui.html#ingress-method) for more information about `tanzu-system-ingress`.
 
 - Tanzu Learning Center: Similar to Cloud Native Runtimes, allocate a wildcard subdomain for your workshops and content. This is also specified by the `shared.ingress_domain` key of the `tap-values.yaml` configuration file that you input with the installation. This wildcard must be pointed at the external IP address of the `tanzu-system-ingress`'s `envoy` service.
 
@@ -130,7 +130,10 @@ providers:
     - 8&nbsp;GB of RAM available per node to Tanzu Application Platform.
     - 12&nbsp;vCPUs available across all nodes to Tanzu Application Platform.
     - 100&nbsp;GB of disk space available per node.
-
+- To deploy Tanzu Application Platform packages view profile, your cluster must have at least:
+    - 8&nbsp;GB of RAM available per node to Tanzu Application Platform.
+    - 8&nbsp;vCPUs available across all nodes to Tanzu Application Platform.
+    - 100&nbsp;GB of disk space available per node.
 - For the [full profile](install-online/profile.hbs.md#full-profile) or use of Security Chain Security Tools - Store, your cluster must have a configured default StorageClass.
 
 - Pod security policies must be configured so that Tanzu Application Platform controller pods can run as root in the following optional configurations:

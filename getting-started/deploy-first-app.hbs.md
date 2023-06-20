@@ -1,7 +1,8 @@
 # Deploy an app on Tanzu Application Platform
 
-This topic guides you through deploying your first application on Tanzu Application Platform by using the
-Tanzu CLI, and optionally adding your application to the Tanzu Application Platform GUI software catalog.
+This topic guides you through deploying your first application on Tanzu Application Platform
+(commonly known as TAP) by using the Tanzu CLI, and optionally adding your application to the
+Tanzu Application Platform GUI software catalog.
 
 This guide is a continuation from the previous step,
 [Generate an application with Application Accelerator](./generate-first-app.hbs.md).
@@ -226,4 +227,5 @@ Now that you have your application deployed on your Tanzu Application Platform c
 the next step is to iterate on your application.
 
 - If you are an IntelliJ user, see the [Iterate on your new app using IntelliJ](iterate-new-app-intellij.hbs.md) guide.
+- If you are a Visual Studio user, see the [Iterate on your new app using Visual Studio](iterate-new-app-vs.hbs.md) guide.
 - If you are a VS Code user, see the [Iterate on your new app using VS Code](iterate-new-app-vscode.hbs.md) guide.

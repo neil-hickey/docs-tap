@@ -1,21 +1,21 @@
 # Iterate on your new app using Tanzu Developer Tools for IntelliJ
 
-This how-to topic guides you through starting to iterate on your first application on
-Tanzu Application Platform.
-You deployed the app in the previous how-to [Deploy your first application](deploy-first-app.md).
+This topic guides you through starting to iterate on your first application on
+Tanzu Application Platform (commonly known as TAP).
+You deployed the app in the previous how-to [Deploy your first application](deploy-first-app.hbs.md).
 
 ## <a id="you-will"></a>What you will do
 
 - Prepare your IDE to iterate on your application.
 - Live update your application to view code changes updating live on the cluster.
 - Debug your application.
-- Monitor your running application on the Application Live View UI.
+- Delete your application from the cluster.
 
 ## <a id="prepare-to-iterate"></a>Prepare your IDE to iterate on your application
 
 In the previous Getting started how-to topic, [Deploy your first application](deploy-first-app.hbs.md),
 you deployed your first application on Tanzu Application Platform.
-Now that you have a skeleton workload developed, you are ready to begin to iterate on your new
+Now that you have developed a skeleton workload, you are ready to begin to iterate on your new
 application and test code changes on the cluster.
 
 Tanzu Developer Tools for IntelliJ is VMware Tanzu’s official IDE extension for IntelliJ.
@@ -114,7 +114,7 @@ the Kubernetes resources for the running workloads.
 Live Update allows you to save changes to your code and see those changes reflected within seconds
 in the workload running on the cluster.
 
-The following steps enable Live Update for your application:
+To enable Live Update for your application:
 
 1. Create a Run Configuration.
    1. In IntelliJ, select the **Edit Run/Debug configurations** drop-down menu at the top-right corner.

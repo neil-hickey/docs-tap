@@ -53,6 +53,10 @@ In addition it mounts the token of the service account into the Tanzu Applicatio
 pod and produces for you the `app_config` section necessary for Tanzu Application Platform GUI to
 communicate with SCST - Store.
 
+> **Important** If your configuration includes a `/metadata-store` block, the automation doesn't
+> overwrite the proxy block that you provide. To use the automation you must delete the block at
+> `tap_gui.app_config.proxy["/metadata-store"]`.
+
 ### <a id="scan-manual"></a> Manually connect Tanzu Application Platform GUI to the Metadata Store
 
 To manually enable CVE scan results:

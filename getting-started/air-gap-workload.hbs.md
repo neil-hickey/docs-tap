@@ -1,6 +1,7 @@
-# Deploy an air-gapped workload
+# Deploy an air-gapped workload on Tanzu Application Platform
 
-This how-to guide walks developers through deploying your first workload on Tanzu Application Platform in an air-gapped environment.
+This topic for developers guides you through deploying your first workload on Tanzu Application Platform (commonly known as TAP)
+in an air-gapped environment.
 
 For information about installing Tanzu Application Platform in an air-gapped environment, see [Install Tanzu Application Platform in an air-gapped environment](../install-offline/profile.hbs.md).
 
@@ -30,57 +31,56 @@ To create a workload from Git through https, follow these steps:
       name: git-ca
       # namespace: default
     type: Opaque
-    data:
-      username: USERNAME-BASE64
-      password: PASSWORD-BASE64
+    stringData:
+      username: USERNAME
+      password: PASSWORD
       caFile: |
-        CADATA-BASE64
+        CADATA
     ```
 
     Where:
 
-    - `USERNAME-BASE64` is the base64 encoded user name.
-    - `PASSWORD-BASE64` is the base64 encoded password.
-    - `CADATA-BASE64` is the base64 encoded CA certificate for the
-    Git repository.
+    - `USERNAME` is the user name.
+    - `PASSWORD` is the password.
+    - `CADATA` is the PEM-encoded CA certificate for the Git repository.
 
 3. To pass in a custom settings.xml for Java, create a file called `settings-xml.yaml`. For example:
 
-   ```yaml
-   apiVersion: v1
-   kind: Secret
-   metadata:
-     name: settings-xml
-   type: service.binding/maven
-   stringData:
-     type: maven
-     provider: sample
-     settings.xml: |
-       <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
-           <mirrors>
-               <mirror>
-                   <id>reposilite</id>
-                   <name>Tanzu seal Internal Repo</name>
-                   <url>https://reposilite.tap-trust.cf-app.com/releases</url>
-                   <mirrorOf>*</mirrorOf>
-               </mirror>
-           </mirrors>
-           <servers>
+    ```yaml
+    apiVersion: v1
+    kind: Secret
+    metadata:
+      name: settings-xml
+    type: service.binding/maven
+    stringData:
+      type: maven
+      provider: sample
+      settings.xml: |
+        <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
+            <mirrors>
+                <mirror>
+                    <id>reposilite</id>
+                    <name>Tanzu seal Internal Repo</name>
+                    <url>https://reposilite.tap-trust.cf-app.com/releases</url>
+                    <mirrorOf>*</mirrorOf>
+                </mirror>
+            </mirrors>
+            <servers>
                 <server>
-                   <id>reposilite</id>
-                   <username>USERNAME</username>
-                   <password>PASSWORD</password>
+                    <id>reposilite</id>
+                    <username>USERNAME</username>
+                    <password>PASSWORD</password>
                 </server>
-           </servers>
-       </settings>
-   ```
+            </servers>
+        </settings>
+    ```
 
 4. Apply the file:
 
-   ```console
-   kubectl create -f settings-xml.yaml -n DEVELOPER-NAMESPACE
-   ```
+    ```console
+    kubectl create -f settings-xml.yaml -n DEVELOPER-NAMESPACE
+    ```
 
 ## <a id="create-basic-wkload"></a>Create a basic supply chain workload
 
@@ -158,3 +158,4 @@ To instead pass the CA certificate when you create the workload, run:
 
 ```console
 tanzu apps workload create APP-NAME --git-repo  https://GITREPO --git-branch BRANCH --type web --label app.kubernetes.io/part-of=CATALOGNAME --yes --param-yaml --label apps.tanzu.vmware.com/has-tests=true buildServiceBindings='[{"name": "settings-xml", "kind": "Secret"}]' --param "gitops_ssh_secret=git-ca"
+```

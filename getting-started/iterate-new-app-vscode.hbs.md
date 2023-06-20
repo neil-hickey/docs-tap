@@ -1,8 +1,8 @@
 # Iterate on your new app using Tanzu Developer Tools for VS Code
 
-This how-to topic guides you through starting to iterate on your first application on
-Tanzu Application Platform.
-You deployed the app in the previous how-to [Deploy your first application](deploy-first-app.md).
+This topic guides you through starting to iterate on your first application on
+Tanzu Application Platform (commonly known as TAP).
+You deployed the app in the previous how-to [Deploy your first application](deploy-first-app.hbs.md).
 
 ## <a id="you-will"></a>What you will do
 
@@ -17,7 +17,7 @@ You deployed the app in the previous how-to [Deploy your first application](depl
 
 In the previous Getting started how-to topic, [Deploy your first application](deploy-first-app.md),
 you deployed your first application on Tanzu Application Platform.
-Now that you have a skeleton workload developed, you are ready to begin to iterate on your new
+Now that you have developed a skeleton workload, you are ready to begin to iterate on your new
 application and test code changes on the cluster.
 
 Tanzu Developer Tools for VS Code is VMware Tanzu’s official IDE extension for VS Code.
@@ -123,7 +123,7 @@ view in the left Side Bar.
 Live Update allows you to save changes to your code and see those changes reflected within seconds
 in the workload running on the cluster.
 
-The following steps enable Live Update for your application:
+To enable Live Update for your application:
 
 1. To begin Live Updating the workload on the cluster, do one of the following:
 
