@@ -204,7 +204,15 @@ Follow these steps to customize your Tanzu Application Platform cluster configur
 
 Tanzu GitOps RI uses the Vault Kubernetes authentication method for establishing trust between the kubernetes cluster and Vault, see [Vault Kubernetes auth](https://developer.hashicorp.com/vault/docs/auth/kubernetes) for more. This authetication method uses the Kubernetes Control Plane [TokenReview API](https://kubernetes.io/docs/reference/kubernetes-api/authentication-resources/token-review-v1/) to authenticate the kubernetes service accounts with Vault. For this reason, the clusters control plane must be able to commuicate over the network to the Vault instance.
 
-To configure Kubernetes authentication for Vault, you can create a new Kubernetes authentication engine instance on Vault and two IAM Roles by using the supplied script:
+To configure Kubernetes authentication for Vault, you can create a new Kubernetes authentication engine instance on Vault and two IAM Roles.
+
+Ensure that you have enabled kubernetes auth by running the following command:
+
+```console
+vault auth enable -path=$CLUSTER_NAME kubernetes
+```
+
+A convenience script has been supplied to configure this auth after it has been created:
 
 ```console
 tanzu-sync/scripts/setup/create-kubernetes-auth.sh
@@ -234,6 +242,8 @@ Tanzu Application Platform installation secrets by using the supplied script:
     ```console
     tanzu-sync/scripts/setup/create-policies.sh
     ```
+    
+>**Note** by default the policies created have a path of `secret/dev/${CLUSTER_NAME}/tanzu-sync`. Some versions of vault, the path will need to be `secret/data/dev/${CLUSTER_NAME}/tanzu-sync` to work. Please modify these policies to include the new path.
 
 2. Create two Roles, one to read the Tanzu Sync secrets and another to read the 
 Tanzu Application Platform installation secrets by using the supplied script:
@@ -283,7 +293,7 @@ Follow these steps to create the sensitive configuration and review the non-sens
         created in [Create a new Git repository](#create-a-new-git-repository) is stored in the file `~/.ssh/id_ed25519`:
 
         ```console
-        echo -n "$(cat <<EOF
+        printf '%s\n' "$(cat <<EOF
         {
             "privatekey": "$(cat $GIT_SSH_PRIVATE_KEY_FILE | awk '{printf "%s\\n", $0}')",
             "knownhosts": "$(echo $GIT_KNOWN_HOSTS | awk '{printf "%s\\n", $0}')"
@@ -340,7 +350,7 @@ Follow these steps to create the sensitive configuration and review the non-sens
     For example:
 
     ```console
-    echo -n "$(cat <<EOF
+    printf '%s\n' "$(cat <<EOF
     {
       "auths": {
           "${INSTALL_REGISTRY_HOSTNAME}": {
