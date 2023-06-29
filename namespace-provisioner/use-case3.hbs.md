@@ -50,7 +50,7 @@ The secrets for Git authentication allow the following keys: ssh-privatekey, ssh
       EOF
       ```
 
-2. Add the `secretRef` section to the `additional_sources` and the `gitops_install` section of the Namespace Provisioner configuration in your TAP values:
+2. Add the `secretRef` section to the `additional_sources` and the `gitops_install` section of the Namespace Provisioner configuration in your `tap-values.yaml` file:
 
     Using Namespace Provisioner Controller
     : Description
@@ -266,10 +266,10 @@ To configure the service account to work with private Git repositories, follow t
     EOF
     ```
 
-4. Put all this together in Namespace Provisioner configuration in TAP values as follows:
+4. Put all this together in Namespace Provisioner configuration in `tap-values.yaml` as follows:
 
     Using Namespace Provisioner Controller
-    : Add the following configuration to your TAP values
+    : Add the following configuration to your `tap-values.yaml` file:
 
       ```yaml
       namespace_provisioner:
@@ -291,7 +291,7 @@ To configure the service account to work with private Git repositories, follow t
       ```
 
     Using GitOps
-    : Add the following configuration to your TAP values
+    : Add the following configuration to your `tap-values.yaml` file:
 
       ```yaml
       namespace_provisioner:

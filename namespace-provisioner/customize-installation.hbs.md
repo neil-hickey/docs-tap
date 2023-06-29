@@ -44,7 +44,7 @@ Options if using Controller
      - `create_export`:  Boolean flag to control creation of a SecretExport resource in the namespace. The default value is false. If the secret is already exported, ensure that it is exported to the `tap-namespace-provisioning` namespace.
      - `path` must start with the prefix `_ytt_lib/`. Namespace Provisioner mounts all the additional sources as a [ytt library](https://carvel.dev/ytt/docs/v0.44.0/lang-ref-ytt-library/#what-is-a-library) so it can expand the manifests in the additional sources for all managed namespaces using the logic in the expansion template. The path after the `_ytt_lib`  prefix can be any string value, and must be unique across all additional sources.
 
-   Sample TAP values configuration:
+   Sample `tap-values.yaml` configuration:
 
    ```yaml
   namespace_provisioner:
@@ -66,9 +66,9 @@ Options if using Controller
 
    **<a id ='con-adjust-sync'></a>Adjust sync period of Namespace Provisioner**
 
-  `sync_period` defines the wait time for the Namespace Provisioner to reconcile. `sync_period` is specified in time + unit format. The minimum `sync_period` allowed is 30 seconds. Namespace Provisioner sets the `sync_period` value to `30s` if a lesser value is specified in TAP values. If not specified, the value defaults to `1m0s`.
+  `sync_period` defines the wait time for the Namespace Provisioner to reconcile. `sync_period` is specified in time + unit format. The minimum `sync_period` allowed is 30 seconds. Namespace Provisioner sets the `sync_period` value to `30s` if a lesser value is specified in `tap-values.yaml`. If not specified, the value defaults to `1m0s`.
 
-   Sample TAP values configuration:
+   Sample `tap-values.yaml` configuration:
 
   ```yaml
   namespace_provisioner:
@@ -107,7 +107,7 @@ Options if using Controller
       key2: value2
   ```
 
-  Sample TAP values configuration:
+  Sample `tap-values.yaml` configuration:
 
   ```yaml
   namespace_provisioner:
@@ -122,7 +122,7 @@ Options if using Controller
 
    `namespace_selector` defines the [label selector](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors) used by the [controller](about.hbs.md#nsp-controller) to determine which namespaces should be added to the [desired-namespaces](about.hbs.md#desired-ns) ConfigMap.
 
-   Sample TAP values configuration:
+   Sample `tap-values.yaml` configuration:
 
   ```yaml
   namespace_provisioner:
@@ -135,13 +135,13 @@ Options if using Controller
 
    **<a id= 'con-override-cpu'></a>Override default CPU and memory limits for controller pods**
 
-  Use the `controller_resources` section in Namespace Provisioner configuration in TAP values to configure Namespace Provisioner Compute Resources controllers.
+  Use the `controller_resources` section in Namespace Provisioner configuration in `tap-values.yaml` to configure Namespace Provisioner Compute Resources controllers.
 
   Set `controller_resources.resources.limits.cpu` and `controller_resources.resources.limits.memory` to configure the maximum CPU and memory available for the controller.
 
   Similarly, set `controller_resources.resources.requests.cpu` and `controller_resources.resources.requests.memory` to configure the minimum CPU capacity and memory available for the controller.
 
-   Sample TAP values configuration:
+   Sample `tap-values.yaml` configuration:
 
   ```yaml
   namespace_provisioner:
@@ -160,7 +160,7 @@ Options if using Controller
 
    If the TAP installation is on AWS with EKS, use the IAM Role from `aws_iam_role_arn` for the Kubernetes Service Account that is used by Workload and the Supply chain to create resources.
    
-   Sample TAP values configuration:
+   Sample `tap-values.yaml` configuration:
 
   ```yaml
   namespace_provisioner:
@@ -172,7 +172,7 @@ Options if using Controller
 
    `default_parameters` is an array of parameters applied to all namespaces which can be used as ytt (`data.values.default_parameters`) for templating default and additional resources.
 
-   Sample TAP values configuration:
+   Sample `tap-values.yaml` configuration:
 
   ```yaml
   namespace_provisioner:
@@ -189,9 +189,9 @@ Options if using Controller
 
    **<a id='con-custom-label'></a>Customize the label and annotation prefixes that controller watches**
 
-   `parameter_prefixes` is an array of label/annotation prefixes the controller looks for to add namespace specific parameters into the [desired-namespaces](about.hbs.md#desired-ns) ConfigMap which can be used as ytt data.values for templating default and additional resources. For example, the value `tap.tanzu.vmware.com` tells the Namespace Provisioner controller to look for the annotations/labels on a provisioned namespace that start with the prefix `tap.tanzu.vmware.com/` and use those as parameters.
+   `parameter_prefixes` is an array of label/annotation prefixes the controller looks for to add namespace specific parameters into the [desired-namespaces](about.hbs.md#desired-ns) ConfigMap which can be used as ytt data.values for templating default and additional resources. For example, the value `tap.tanzu.vmware.com` tells the Namespace Provisioner controller to look for the annotations and labels on a provisioned namespace that start with the prefix `tap.tanzu.vmware.com/` and use those as parameters.
 
-   Sample TAP values configuration:
+   Sample `tap-values.yaml` configuration:
 
   ```yaml
   namespace_provisioner:
@@ -237,7 +237,7 @@ Options if using Controller
   EOF
   ```
 
-   Sample TAP values configuration:
+   Sample `tap-values.yaml` configuration:
 
   ```yaml
   namespace_provisioner:
@@ -305,7 +305,7 @@ Options if using GitOps
 
   This file in the sample repository creates the namespaces in the namespaces list so no manual intervention is required.
 
-  Sample TAP values configuration:
+  Sample `tap-values.yaml` configuration:
 
   ```yaml
   namespace_provisioner:
@@ -327,7 +327,7 @@ Options if using GitOps
       - `create_export`: Boolean flag to decide creation of a SecretExport resource in the namespace. The default value is `false`. If the secret is already exported, ensure that it is exported for the `tap-namespace-provisioning` namespace.
    - `path` must start with the prefix `_ytt_lib/`. Namespace Provisioner mounts all the additional sources as a [ytt library](https://carvel.dev/ytt/docs/v0.44.0/lang-ref-ytt-library/#what-is-a-library) so it can expand the manifests in the additional sources for all managed namespaces using the logic in the expansion template. The path after the `_ytt_lib` prefix can be any string value and must be unique across all additional sources.
 
-  Sample TAP values configuration:
+  Sample `tap-values.yaml` configuration:
 
   ```yaml
   namespace_provisioner:
@@ -355,7 +355,7 @@ Options if using GitOps
 
   `sync_period` defines the wait time for the Namespace Provisioner to reconcile. `sync_period` is specified in time + unit format. If a value less than 30 seconds is specified, it defaults to 30 seconds. If not specified, the value defaults to `1m0s`.
 
-  Sample TAP values configuration:
+  Sample `tap-values.yaml` configuration:
 
   ```yaml
   namespace_provisioner:
@@ -388,7 +388,7 @@ Options if using GitOps
       key2: value2
   ```
 
-  Sample TAP values configuration:
+  Sample `tap-values.yaml` configuration:
 
   ```yaml
   namespace_provisioner:
@@ -403,7 +403,7 @@ Options if using GitOps
 
   If the TAP installation is on AWS with EKS, use the IAM Role from `aws_iam_role_arn` for the Kubernetes Service Account that is used by Workload and the Supply chain to create resources.
 
-  Sample TAP values configuration:
+  Sample `tap-values.yaml` configuration:
 
   ```yaml
   namespace_provisioner:
@@ -464,7 +464,7 @@ Options if using GitOps
   EOF
   ```
 
-  Sample TAP values configuration:
+  Sample `tap-values.yaml` configuration:
 
   ```yaml
   namespace_provisioner:

@@ -36,7 +36,7 @@ Namespace Provisioner creates Grype scanner install as one of the [default resou
 2. Import this overlay secret onto Namespace Provisioner configuration so it gets applied to the resources created by Namespace Provisioner for all managed namespaces.
 
 Using Namespace Provisioner Controller
-: Add the following configuration to your TAP values
+: Add the following configuration to your `tap-values.yaml`
 
     ```yaml
     namespace_provisioner:
@@ -48,7 +48,7 @@ Using Namespace Provisioner Controller
     ```
 
 Using GitOps
-: Add the following configuration to your TAP values
+: Add the following configuration to your `tap-values.yaml`
 
     ```yaml
     namespace_provisioner:
@@ -139,10 +139,10 @@ To configure the service account to work with private Git repositories, follow t
     EOF
     ```
 
-4. Put all this together in Namespace Provisioner configuration in TAP values as follows:
+4. Put all this together in `tap-values.yaml` as follows:
 
 Using Namespace Provisioner Controller
-: Add the following configuration to your TAP values
+: Add the following configuration to `tap-values.yaml`:
 
     ```yaml
     namespace_provisioner:
@@ -164,7 +164,7 @@ Using Namespace Provisioner Controller
     ```
 
 Using GitOps
-: Add the following configuration to your TAP values
+: Add the following configuration to `tap-values.yaml`:
 
     ```yaml
     namespace_provisioner:
@@ -211,7 +211,7 @@ limits:
 
 ### Update LimitRange defaults for all namespaces
 
-Namespace Provisioner provides options for updating the values in LimitRange for all namespaces managed by the provisioner by specifying the `default_parameters` configuration in Namespace Provisioner TAP values as follows:
+Update the values in LimitRange for all namespaces managed by Namespace Provisioner by specifying the `default_parameters` configuration in `tap-values.yaml` as follows:
 
 ```yaml
 namespace_provisioner:
@@ -243,13 +243,14 @@ Using Namespace Provisioner Controller
     kubectl annotate ns YOUR-NEW-DEVELOPER-NAMESPACE param.nsp.tap/limits.defaultRequest.memory=1Gi
     ```
 
-    * Controller will look at all the annotations/labels with prefix `param.nsp.tap/` and add the keys and its values in the desired-namespace configmaps as parameters for that namespace.
-    * Users can provide a custom prefix for the controller to look at if they do not want to use the default `param.nsp.tap` using parameter_prefixes configuration in Namespace Provisioner TAP values. See [Controller Customization](customize-installation.md) for more information on setting parameter_prefixes.
+    Controller will look at all the annotations and labels with the `param.nsp.tap/` prefix and add
+    the keys and its values in the desired-namespace configmaps as parameters for that namespace.
+    Alternatively, you can provide a custom prefix using the parameter_prefixes configuration in `tap-values.yaml`. For more information about setting parameter_prefixes, see [Controller Customization](customize-installation.md).
 
     >**Note** Labels take precedence over annotations if the same key is provided in both.
 
 Using GitOps
-: Add the following configuration to your TAP values to add parameterized limits to your developer namespace:
+: Add the following configuration to your `tap-values.yaml` file to add parameterized limits to your developer namespace:
 
     ```yaml
     namespace_provisioner:

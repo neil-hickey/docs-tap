@@ -24,7 +24,8 @@ Using Namespace Provisioner Controller
       parameter_prefixes:
       - tap.tanzu.vmware.com
     ```
-    >**Note** We added `tap.tanzu.vmware.com` as a parameter_prefixes in Namespace Provisioner configuration. This tells the Namespace Provisioner controller to look for the annotations/labels on a provisioned namespace that start with the prefix `tap.tanzu.vmware.com/` and use those as parameters.
+    >**Note** We added `tap.tanzu.vmware.com` as a parameter_prefixes in Namespace Provisioner configuration. This tells the Namespace Provisioner controller to look for the annotations and 
+    labels on a provisioned namespace that start with the prefix `tap.tanzu.vmware.com/` and use those as parameters.
 
     The sample pipelines have the following ytt logic which creates this pipeline only if
 
