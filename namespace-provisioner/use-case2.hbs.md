@@ -10,7 +10,7 @@ This use case looks at the pipelines and ScanPolicies in this [sample GitOps loc
 Using Namespace Provisioner Controller
 : When using the Namespace Provisioner controller, pass the parameters to a namespace via labels and annotations on the namespace. To enable this, set the `parameter_prefixes` in TAP configuration for Namespace Provisioner so the controller will look for labels/annotations starting with that prefix to populate parameters for a given namespace. See Controller section of [Customize Installation of Namespace Provisioner](customize-installation.md) guide for more information.
 
-    Add the following configuration to your TAP values to add parameterized tekton pipelines and scan policies to your developer namespace:
+    Add the following configuration to your `tap-values.yaml` to add parameterized tekton pipelines and scan policies to your developer namespace:
 
     ```yaml
     namespace_provisioner:
@@ -28,8 +28,8 @@ Using Namespace Provisioner Controller
 
     The sample pipelines have the following ytt logic which creates this pipeline only if
 
-    - `supply_chain` in your TAP values is either `testing` or `testing_scanning`
-    - `profile` in your TAP values is either` full, iterate` or `build`.
+    - `supply_chain` in your `tap-values.yaml` file is either `testing` or `testing_scanning`
+    - `profile` in your `tap-values.yaml` file is either` full, iterate` or `build`.
      `pipeline` parameter that matches the language for which the pipeline is for.
 
     ```shell
@@ -42,8 +42,8 @@ Using Namespace Provisioner Controller
 
     The sample ScanPolicy resource have the following ytt logic which creates this pipeline only if
 
-    * `supply_chain` in your TAP values is `testing_scanning`
-    * `profile` in your TAP values is either `full` or `build`.
+    * `supply_chain` in your `tap-values.yaml` file is `testing_scanning`
+    * `profile` in your `tap-values.yaml` file is either `full` or `build`.
     * `scanpolicy `parameter matches either `strict` or `lax`
 
     ```shell
@@ -67,7 +67,7 @@ Using Namespace Provisioner Controller
 Using GitOps
 : When using GitOps, pass the parameters to a namespace by adding them to the data.values file located in our GitOps repo. Take a look at [this sample file](https://github.com/vmware-tanzu/application-accelerator-samples/blob/main/ns-provisioner-samples/gitops-install-with-params/desired-namespaces.yaml#L7-L8) for an example.
 
-    Add the following configuration to your TAP values to add parameterized tekton pipelines and scan policies to your developer namespace:
+    Add the following configuration to your `tap-values.yaml` file to add parameterized tekton pipelines and scan policies to your developer namespace:
 
     ```yaml
     namespace_provisioner:
@@ -115,8 +115,8 @@ Using GitOps
 
     The sample pipelines have the following ytt logic which creates this pipeline only if
 
-    * `supply_chain` in your TAP values is either `testing` or `testing_scanning`
-    * `profile` in your TAP values is either` full, iterate` or `build`.
+    * `supply_chain` in your `tap-values.yaml` is either `testing` or `testing_scanning`
+    * `profile` in your `tap-values.yaml` is either` full, iterate` or `build`.
     * `pipeline` parameter that matches the language for which the pipeline is for.
 
     ```shell
@@ -129,8 +129,8 @@ Using GitOps
 
     The sample ScanPolicy resource have the following ytt logic which creates this pipeline only if
 
-    * `supply_chain` in your TAP values is `testing_scanning`
-    * `profile` in your TAP values is either `full` or `build`.
+    * `supply_chain` in your `tap-values.yaml` is `testing_scanning`
+    * `profile` in your `tap-values.yaml` is either `full` or `build`.
     * `scanpolicy `parameter matches either `strict` or `lax`
 
     ```shell
