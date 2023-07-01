@@ -512,7 +512,7 @@ For more information, see [Configure properties](./scst-scan/install-scst-scan.h
 
 #### <a id="tap-gui-plug-in-features"></a> Tanzu Application Platform GUI plug-ins
 
-- **Supply Chain Plug-in:**
+- **Application Live View plug-in:**
   - When `alvToken` has expired, the logic to fetch a new token and the API call are both retried.
   - Actions are deactivated and a message is displayed when sensitive operations are deactivated for
     the app.
@@ -704,7 +704,7 @@ HTTPProxy resources.
   - Fixed JSON schema for Git repository creation.
   - Added missing query string parameters to accelerator provenance.
 
-- **Supply Chain Plug-in:**
+- **Application Live View plug-in:**
 
   - Fixed CPU stats in App Live View Steeltoe Threads and Memory pages.
   - The App Live View Details page now shows the correct boot version instead of **UNKNOWN**.
