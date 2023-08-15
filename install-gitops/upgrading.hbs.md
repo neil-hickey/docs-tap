@@ -14,8 +14,8 @@ Before you upgrade your Tanzu Application Platform:
 
 - Verify that you meet all the [prerequisites](../prerequisites.hbs.md) of the target Tanzu Application Platform version. If the target Tanzu Application Platform version does not support your existing Kubernetes version, VMware recommends upgrading to a supported version before proceeding with the upgrade.
 - For information about installing your Tanzu Application Platform, see [Install Tanzu Application Platform through Gitops with Secrets OPerationS (SOPS)](sops.hbs.md) or [Install Tanzu Application Platform through GitOps with External Secrets Operator (ESO)](eso.hbs.md).
-- For information about Tanzu Developer Portal (formerly named Tanzu Application Platform GUI)
-  considerations, see [Tanzu Developer Portal Considerations](../tap-gui/upgrades.hbs.md#considerations).
+- For information about Tanzu Developer Portal considerations, see
+  [Tanzu Developer Portal Considerations](../tap-gui/upgrades.hbs.md#considerations).
 - Verify all packages are reconciled by running `kubectl get packageinstall --namespace tap-install`.
 
 ## <a id="relocate-images"></a> Relocate Tanzu Application Platform images to a registry
@@ -106,7 +106,7 @@ Follow these steps to upgrade to the latest patch:
 1. Commit the upgrade configurations:
 
     ```console
-    git add . && git commit -m "Upgrade TAP to version 1.6.1"
+    git add . && git commit -m "Upgrade TAP to {{ vars.tap_version }}"
     git push
     ```
 

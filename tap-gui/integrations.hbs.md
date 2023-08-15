@@ -1,8 +1,7 @@
 # Add Tanzu Developer Portal integrations
 
-You can integrate Tanzu Developer Portal (formerly called Tanzu Application Platform GUI) with several
-Git providers. To use an integration, you must enable it and provide the necessary token or credentials
-in `tap-values.yaml`.
+You can integrate Tanzu Developer Portal with several Git providers. To use an integration, you must
+enable it and provide the necessary token or credentials in `tap-values.yaml`.
 
 ## <a id="add-github-integration"></a> Add a GitHub provider integration
 
@@ -73,7 +72,7 @@ To add an integration for a provider that isn't associated with GitHub, see the
 After making changes to `tap-values.yaml`, update the package profile by running:
 
 ```console
-tanzu package installed update  tap --package-name tap.tanzu.vmware.com --version VERSION-NUMBER \
+tanzu package installed update  tap --package tap.tanzu.vmware.com --version VERSION-NUMBER \
 --values-file tap-values.yaml -n tap-install
 ```
 
@@ -82,7 +81,7 @@ Where `VERSION-NUMBER` is the Tanzu Application Platform version. For example, `
 For example:
 
 ```console
-$ tanzu package installed update  tap --package-name tap.tanzu.vmware.com --version \
+$ tanzu package installed update  tap --package tap.tanzu.vmware.com --version \
 {{ vars.tap_version }} --values-file tap-values.yaml -n tap-install
 | Updating package 'tap'
 | Getting package install for 'tap'

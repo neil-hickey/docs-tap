@@ -1,7 +1,8 @@
-# Build your Customized Tanzu Developer Portal with Configurator
+# Build your Customized Tanzu Developer Portal with Configurator (beta)
 
-This topic tells you how to build your customized Tanzu Developer Portal
-(formerly named Tanzu Application Platform GUI) with Configurator.
+This topic tells you how to build your customized Tanzu Developer Portal with Configurator.
+
+> **Caution** The Configurator tool is in beta. Do not use it in a production environment.
 
 ## <a id="prereqs"></a> Prerequisites
 
@@ -27,8 +28,7 @@ Meet the following prerequisites:
   can build a sample application, such as `Tanzu-Java-Web-App` in
   [Generate an application with Application Accelerator](../../getting-started/generate-first-app.hbs.md).
 
-- Ensure that your extra plug-ins are in an npm registry. This registry can be your own private
-  registry or a plug-in registry if you intend to use a third-party or community plug-in.
+- Ensure that your extra plug-ins are in the [npmjs.com](https://www.npmjs.com/) registry.
 
 - Ensure that [Carvel tools](https://carvel.dev/) is installed on your workstation.
   `imgpkg`, in particular, must be installed to perform some of the build steps.

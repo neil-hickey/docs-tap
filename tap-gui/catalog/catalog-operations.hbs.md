@@ -18,8 +18,8 @@ For information about all types of entities, see the
 [Backstage documentation](https://backstage.io/docs/features/software-catalog/descriptor-format).
 
 You can use the example blank catalog described in the Tanzu Developer Portal
-(formerly named Tanzu Application Platform GUI) [prerequisites](../../prerequisites.md#tap-gui) as a
-foundation for creating user, group, system, and main component YAML files.
+[prerequisites](../../prerequisites.md#tap-gui) as a foundation for creating user, group, system, and
+main component YAML files.
 
 Relationship Diagram:
 ![Relationships box-and-line diagram. User 1 is within Group 1, which is within Organization. Component 2 is within System. User 1 owns Component 2. Group 1 owns System.](../images/tap-gui-relationships.jpg)
@@ -214,7 +214,7 @@ Use GitLabDiscoveryProcessor
 
         ```console
         tanzu package installed update tap \
-          --package-name tap.tanzu.vmware.com \
+          --package tap.tanzu.vmware.com \
           --version PACKAGE-VERSION \
           --values-file tap-values.yaml \
           --namespace tap-install
@@ -224,7 +224,7 @@ Use GitLabDiscoveryProcessor
 
         ```console
         tanzu package installed update tap-gui \
-          --package-name tap-gui.tanzu.vmware.com \
+          --package tap-gui.tanzu.vmware.com \
           --version PACKAGE-VERSION \
           --values-file tap-gui-values.yaml \
           --namespace tap-install

@@ -7,7 +7,7 @@ cluster:
 - [Leveraging Google's OIDC provider](#google-oidc-provider)
 
 After the authorization is enabled, you can view your runtime resources on a remote cluster in
-Tanzu Developer Portal (formerly named Tanzu Application Platform GUI). For more information, see
+Tanzu Developer Portal. For more information, see
 [View runtime resources on remote clusters](view-resources-rbac.hbs.md).
 
 ## <a id="external-oidc-provider"></a> Leverage an external OIDC provider
@@ -17,7 +17,7 @@ To leverage an external OIDC provider, such as Auth0:
 1. Set up the OIDC provider
 1. Configure the GKE cluster with the OIDC provider
 1. Configure the Tanzu Developer Portal to view the remote GKE cluster
-1. Upgrade the Tanzu Developer Portal package
+1. Update the `tap-gui` package
 
 ### <a id="set-up-oidc-provider"></a> Set up the OIDC provider
 
@@ -60,7 +60,7 @@ in the Backstage documentation.
 Add redirect configuration on the OIDC side by following the
 [Google Cloud documentation](https://cloud.google.com/kubernetes-engine/docs/how-to/oidc).
 
-### <a id="configure-tap-gui"></a> Configure the Tanzu Developer Portal
+### <a id="cnfg-rmt-clst-visibility"></a> Configure visibility of the remote cluster
 
 Configure visibility of the remote cluster in Tanzu Developer Portal:
 
@@ -124,9 +124,9 @@ Configure visibility of the remote cluster in Tanzu Developer Portal:
     If there are any other clusters that you want to make visible in Tanzu Developer Portal,
     add their entries to `clusters` as well.
 
-### <a id="upgrade-tap-gui"></a> Upgrade the Tanzu Developer Portal package
+### <a id="update-tap-gui-pkg-ext"></a> Update the `tap-gui` package to finish leveraging the external OIDC provider
 
-After the new configuration file is ready, update the `tap` package:
+After the new configuration file is ready, update the `tap-gui` package:
 
 1. Run:
 
@@ -154,7 +154,7 @@ When leveraging Google's OIDC provider, fewer steps are needed to enable authori
 Add redirect configuration on the OIDC side by following the
 [Google Cloud documentation](https://cloud.google.com/kubernetes-engine/docs/how-to/oidc).
 
-### <a id="configure-tap-gui"></a> Configure the Tanzu Developer Portal
+### <a id="cnfg-rmt-gke-clst-visib"></a> Configure visibility of the remote GKE cluster
 
 Configure visibility of the remote GKE cluster in Tanzu Developer Portal:
 
@@ -213,9 +213,9 @@ Configure visibility of the remote GKE cluster in Tanzu Developer Portal:
     If there are any other clusters that you want to make visible in Tanzu Developer Portal,
     add their entries to `clusters` as well.
 
-### <a id="upgrade-tap-gui"></a> Upgrade the Tanzu Developer Portal package
+### <a id="update-tap-gui-pkg-ggl"></a> Update the `tap-gui` package to finish leveraging the Google OIDC provider
 
-After the new configuration file is ready, update the `tap` package:
+After the new configuration file is ready, update the `tap-gui` package:
 
 1. Run:
 
@@ -223,7 +223,7 @@ After the new configuration file is ready, update the `tap` package:
     tanzu package installed update tap --values-file tap-values.yaml
     ```
 
-1. Wait a moment for the `tap-gui` package to update and then verify that `STATUS` is
+2. Wait a moment for the `tap-gui` package to update and then verify that `STATUS` is
    `Reconcile succeeded` by running:
 
     ```console

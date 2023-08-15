@@ -1,7 +1,7 @@
 # Install Tanzu Developer Portal
 
-This topic tells you how to install Tanzu Developer Portal
-(formerly called Tanzu Application Platform GUI) from the Tanzu Application Platform package repository.
+This topic tells you how to install Tanzu Developer Portal from the Tanzu Application Platform
+package repository.
 
 > **Note** Follow the steps in this topic if you do not want to use a profile to install
 > Tanzu Developer Portal.
@@ -82,7 +82,7 @@ To install Tanzu Developer Portal on a compliant Kubernetes cluster:
 
     ```console
     tanzu package install tap-gui \
-     --package-name tap-gui.tanzu.vmware.com \
+     --package tap-gui.tanzu.vmware.com \
      --version VERSION -n tap-install \
      -f tap-gui-values.yaml
     ```
@@ -92,7 +92,7 @@ To install Tanzu Developer Portal on a compliant Kubernetes cluster:
     For example:
 
     ```console
-    $ tanzu package install tap-gui -package-name tap-gui.tanzu.vmware.com --version 1.0.1 -n \
+    $ tanzu package install tap-gui --package tap-gui.tanzu.vmware.com --version 1.0.1 -n \
     tap-install -f tap-gui-values.yaml
     - Installing package 'tap-gui.tanzu.vmware.com'
     | Getting package metadata for 'tap-gui.tanzu.vmware.com'

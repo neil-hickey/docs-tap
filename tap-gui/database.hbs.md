@@ -1,7 +1,6 @@
 # Configure the Tanzu Developer Portal database
 
-The Tanzu Developer Portal (formerly called Tanzu Application Platform GUI) catalog gives you two
-approaches for storing catalog information:
+The Tanzu Developer Portal catalog gives you two approaches for storing catalog information:
 
 - **In-memory database:**
 
@@ -101,7 +100,7 @@ Doing so updates Tanzu Developer Portal because it belongs to Tanzu Application 
 To apply your new configuration, run:
 
 ```console
-tanzu package installed update  tap --package-name tap.tanzu.vmware.com --version VERSION-NUMBER --values-file tap-values.yaml -n tap-install
+tanzu package installed update  tap --package tap.tanzu.vmware.com --version VERSION-NUMBER --values-file tap-values.yaml -n tap-install
 ```
 
 Where `VERSION-NUMBER` is your Tanzu Application Platform version. For example, `{{ vars.tap_version }}`.
@@ -109,7 +108,7 @@ Where `VERSION-NUMBER` is your Tanzu Application Platform version. For example, 
 For example:
 
 ```console
-$ tanzu package installed update  tap --package-name tap.tanzu.vmware.com --version \{{ vars.tap_version }} --values-file tap-values.yaml -n tap-install
+$ tanzu package installed update  tap --package tap.tanzu.vmware.com --version \{{ vars.tap_version }} --values-file tap-values.yaml -n tap-install
 | Updating package 'tap'
 | Getting package install for 'tap'
 | Getting package metadata for 'tap.tanzu.vmware.com'

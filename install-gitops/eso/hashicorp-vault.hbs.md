@@ -4,8 +4,8 @@
 
 <!-- TODO: use markdown-generated anchor values to ease navigating within VS Code (and validating links). -->
 
-This topic tells you how to install Tanzu Application Platform (commonly known as TAP) 
-through GitOps with secrets managed in an external secrets store. 
+This topic tells you how to install Tanzu Application Platform (commonly known as TAP)
+through GitOps with secrets managed in an external secrets store.
 To decide which approach to use, see [Choosing SOPS or ESO](../reference.hbs.md#choosing-sops-or-eso).
 
 Tanzu GitOps Reference Implememtation (RI) does not support changing the secrets management strategy for a cluster, for example, SOPs to ESO. However, changing between AWS Secrets Manager and HashiCorp Vault is supported.
@@ -82,11 +82,11 @@ To relocate images from the VMware Tanzu Network registry to your registry:
     imgpkg copy -b registry.tanzu.vmware.com/tanzu-application-platform/tap-packages:${TAP_VERSION} --to-repo ${INSTALL_REGISTRY_HOSTNAME}/${INSTALL_REPO}/tap-packages
     ```
 
-## <a id='airgap-support'></a> (Optional) Installing Tanzu Application Platform in an airgapped environment
+## <a id='airgap-support'></a> (Optional) Install Tanzu Application Platform in an air-gapped environment
 
-If you are working in an internetless environment, the following pre-requisites must be met before continuing with this installation guide:
+Complete the following steps if you install Tanzu Application Platform in an air-gapped environment:
 
-1. Relocate Tanzu Build Service images to your registry
+1. Relocate the Tanzu Build Service images to your registry:
 
     ```console
     imgpkg copy -b registry.tanzu.vmware.com/tanzu-application-platform/full-tbs-deps-package-repo:VERSION --to-repo ${INSTALL_REGISTRY_HOSTNAME}/${INSTALL_REPO}/full-tbs-deps-package-repo
@@ -94,11 +94,11 @@ If you are working in an internetless environment, the following pre-requisites 
 
     Where:
 
-    - `VERSION` is the version of Tanzu Build Service which can be found by running `kubectl get package -n tap-install | grep buildservice`
+    - `VERSION` is the version of Tanzu Build Service. You can retrieve this value by running `kubectl get package -n tap-install | grep buildservice`
 
-1. Configure custom certificate authorities for Tanzu Application Platform GUI. See [custom CAs](../../install-offline/tap-gui-non-standard-certs-offline.hbs.md) for details.
+2. [Configure custom certificate authorities for Tanzu Developer Portal](../../install-offline/tap-gui-non-standard-certs-offline.hbs.md).
 
-1. Host a `grype` database within the airgapped environment. See [Grype Offline](../../install-offline/grype-offline-airgap.hbs.md) for details.
+3. Host a `grype` database in the air-gapped environment. For more information, see [Use Grype in offline and air-gapped environments](../../install-offline/grype-offline-airgap.hbs.md).
 
 ## <a id='create-a-new-git-repository'></a>Create a new Git repository
 
@@ -234,9 +234,9 @@ To configure Kubernetes authentication for Vault, you can create a new Kubernete
 tanzu-sync/scripts/setup/create-kubernetes-auth.sh
 ```
 
->**Important** 
+>**Important**
 
-> - If you use an Enterprise Vault Server with namespaces, run `export VAULT_NAMESPACE=MY-VAULT-NAMESPACE` before using the script. 
+> - If you use an Enterprise Vault Server with namespaces, run `export VAULT_NAMESPACE=MY-VAULT-NAMESPACE` before using the script.
 > - If you use token to access server, run `export VAULT_TOKEN=MY-VAULT-TOKEN` before using the script.
 
 This creates a new vault kubernetes authentication instance using the information for the current context in your `KUBECONFIG`.
@@ -252,19 +252,19 @@ vault write auth/iterate-green/config \
 
 ### <a id='grant-read-access-to-secret-data'></a>Grant read access to secret data
 
-Vault secrets store all sensitive configurations, which are accessed by both 
+Vault secrets store all sensitive configurations, which are accessed by both
 Tanzu Sync and the Tanzu Application Platform installation.
 
 Follow these step to configure Roles in Vault:
 
-1. Create two Policies, one to read the Tanzu Sync secrets and another to read the 
+1. Create two Policies, one to read the Tanzu Sync secrets and another to read the
 Tanzu Application Platform installation secrets by using the supplied script:
 
     ```console
     tanzu-sync/scripts/setup/create-policies.sh
     ```
 
-2. Create two Roles, one to read the Tanzu Sync secrets and another to read the 
+2. Create two Roles, one to read the Tanzu Sync secrets and another to read the
 Tanzu Application Platform installation secrets by using the supplied script:
 
     ```console
@@ -444,7 +444,7 @@ Follow these steps to create the sensitive configuration and review the non-sens
 
     - `kubernetes.role` is the IAM role that grants permission to Tanzu Application Platform installation to read its associated secrets. This role was created in the
     [Grant read access to secret data](#grant-read-access-to-secret-data) section.
-    - `install_registry_dockerconfig` contains the Vault secret name that contains the Docker config authentication to 
+    - `install_registry_dockerconfig` contains the Vault secret name that contains the Docker config authentication to
     the OCI registry hosting the Tanzu Application Platform images created earlier.
 
 1. Replace any `TO DO` sections from line 12 in the earlier example with the relevant values.
@@ -554,7 +554,7 @@ stores the sensitive data such as username, password, private key from the `tap-
     You can start with an empty document and edit it later on as described in
     the [Configure and push the Tanzu Application Platform values](#configure-and-push-tap-values) section.
 
-    Vault does not support storing YAML files, all secrets must be in `key-value` format. 
+    Vault does not support storing YAML files, all secrets must be in `key-value` format.
     You must convert your sensitive-values YAML file to `json` before storage.
 
 1. Review the integration with External Secrets Operator.
@@ -628,7 +628,7 @@ Follow these steps to split the Tanzu Application Platform values:
     ...
     ```
 
-    If installing Tanzu Application Service in an offline environment. Ensure `Tanzu Build Service` and `Grype` are configured to work in an airgapped environment:
+    To install Tanzu Application Service in an offline environment, you must configure `Tanzu Build Service` and `Grype` to work in an air-gapped environment:
 
     ```yaml
     ---
@@ -644,7 +644,7 @@ Follow these steps to split the Tanzu Application Platform values:
 
     Where:
 
-    - `INTERNAL-VULN-DB-URL` URL that points to the internal file server.
+    - `INTERNAL-VULN-DB-URL` is the URL that points to the internal file server.
 
     For more information, see [Components and installation profiles](../../about-package-profiles.hbs.md).
 
@@ -697,7 +697,7 @@ the Vault secret created in the [Review and store Tanzu Application Platform ins
 
     When moving values, you must omit the `tap_install.values` root,
     but keep the remaining structure.
-    All of the parent keys, such as `ootb_supply_chain_basic.gitops` and `ssh_secret`, 
+    All of the parent keys, such as `ootb_supply_chain_basic.gitops` and `ssh_secret`,
     must be copied to the sensitive value YAML.
 
 1. Commit and push the Tanzu Application Platform values:

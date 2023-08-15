@@ -22,12 +22,11 @@ requesting the actuator data.
 The Application Live View connector verifies this token by calling the Application Live View APIServer
 and proxies the actuator data only if the token is valid.
 
-The Application Live View UI plug-in part of Tanzu Developer Portal
-(formerly named Tanzu Application Platform GUI) uses the preceding approach to securely query for the
-actuator data for a pod.
-It requests a token from Application Live View APIServer and passes it in the subsequent calls to the
-back end. This ensures that actuator data from the running application is fetched only if the user is
-authorized to see the live information for the pod.
+The Application Live View UI plug-in part of Tanzu Developer Portal uses the preceding approach to
+securely query for the actuator data for a pod. It requests a token from Application Live View
+APIServer and passes it in the subsequent calls to the back end. This ensures that actuator data
+from the running application is fetched only if the user is authorized to see the live information
+for the pod.
 
 The Application Live View UI plug-in relies on Tanzu Developer Portal authentication and
 authorization to access the Application Live View APIServer and fetch the Application Live View tokens.
@@ -246,7 +245,7 @@ plug-in, take the following steps.
 
     ```console
     tanzu package install tap-gui \
-     --package-name tap-gui.tanzu.vmware.com \
+     --package tap-gui.tanzu.vmware.com \
      --version VERSION -n tap-install \
      -f tap-gui-values.yaml
     ```
@@ -256,7 +255,7 @@ plug-in, take the following steps.
     For example:
 
     ```console
-    $ tanzu package install tap-gui -package-name tap-gui.tanzu.vmware.com --version 1.4.6 -n tap-install -f tap-gui-values.yaml
+    $ tanzu package install tap-gui --package tap-gui.tanzu.vmware.com --version 1.4.6 -n tap-install -f tap-gui-values.yaml
     - Installing package 'tap-gui.tanzu.vmware.com'
     | Getting package metadata for 'tap-gui.tanzu.vmware.com'
     | Creating service account 'tap-gui-default-sa'

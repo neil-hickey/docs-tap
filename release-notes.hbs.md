@@ -29,6 +29,15 @@ This release includes the following changes, listed by component and area.
 
 - Feature description.
 
+#### <a id='1-7-0-cnrs'></a> v1.7.0 features: Cloud Native Runtimes
+
+- **New config option `contour.default_tls_secret`**: VMware is deprecating the current `default_tls_secret` config option.
+  This new option has the same meaning as `default_tls_secret`. Both config options will be supported for some releases.
+
+- **New config options `contour.[internal/external].namespace`**: VMware is deprecating the current `ingress.[internal/external].namespace` config options.
+  This new options have the same meaning as `ingress.[internal/external].namespace`. Both config options will be
+  supported for some releases.
+
 ---
 
 ### <a id='1-7-0-breaking-changes'></a> v1.7.0 Breaking changes
@@ -132,7 +141,7 @@ The following table lists the supported component versions for this Tanzu Applic
 | Supply Chain Security Tools - Policy Controller                  |         |
 | Supply Chain Security Tools - Scan                               |         |
 | Supply Chain Security Tools - Store                              |         |
-| Tanzu Developer Portal (formerly Tanzu Application Platform GUI) |         |
+| Tanzu Developer Portal                                           |         |
 | Tanzu Application Platform Telemetry                             |         |
 | Tanzu Build Service                                              |         |
 | Tanzu CLI                                                        |         |

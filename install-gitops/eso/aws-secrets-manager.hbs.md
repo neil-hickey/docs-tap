@@ -4,8 +4,8 @@
 
 <!-- TODO: use markdown-generated anchor values to ease navigating within VS Code (and validating links). -->
 
-This topic tells you how to install Tanzu Application Platform (commonly known as TAP) 
-through GitOps with secrets managed externally in AWS Secrets Manager. 
+This topic tells you how to install Tanzu Application Platform (commonly known as TAP)
+through GitOps with secrets managed externally in AWS Secrets Manager.
 To decide which approach to use, see [Choosing SOPS or ESO](../reference.hbs.md#choosing-sops-or-eso).
 
 Tanzu GitOps Reference Implememtation (RI) does not support changing the secrets management strategy for a cluster, for example, SOPs to ESO. However, changing between AWS Secrets Manager and HashiCorp Vault is supported.
@@ -85,11 +85,11 @@ To relocate images from the VMware Tanzu Network registry to your registry:
     imgpkg copy -b registry.tanzu.vmware.com/tanzu-application-platform/tap-packages:${TAP_VERSION} --to-repo ${INSTALL_REGISTRY_HOSTNAME}/${INSTALL_REPO}/tap-packages
     ```
 
-## <a id='airgap-support'></a> (Optional) Installing Tanzu Application Platform in an airgapped environment
+## <a id='airgap-support'></a> (Optional) Install Tanzu Application Platform in an air-gapped environment
 
-If you are working in an internetless environment, the following pre-requisites must be met before continuing with this installation guide:
+Complete the following steps if you install Tanzu Application Platform in an air-gapped environment:
 
-1. Relocate Tanzu Build Service images to your registry
+1. Relocate the Tanzu Build Service images to your registry:
 
     ```console
     imgpkg copy -b registry.tanzu.vmware.com/tanzu-application-platform/full-tbs-deps-package-repo:VERSION --to-repo ${INSTALL_REGISTRY_HOSTNAME}/${INSTALL_REPO}/full-tbs-deps-package-repo
@@ -97,11 +97,11 @@ If you are working in an internetless environment, the following pre-requisites 
 
     Where:
 
-    - `VERSION` is the version of Tanzu Build Service which can be found by running `kubectl get package -n tap-install | grep buildservice`
+    - `VERSION` is the version of Tanzu Build Service. You can retrieve this value by running `kubectl get package -n tap-install | grep buildservice`
 
-1. Configure custom certificate authorities for Tanzu Application Platform GUI. See [custom CAs](../../install-offline/tap-gui-non-standard-certs-offline.hbs.md) for details.
+2. [Configure custom certificate authorities for Tanzu Developer Portal](../../install-offline/tap-gui-non-standard-certs-offline.hbs.md).
 
-1. Host a `grype` database within the airgapped environment. See [Grype Offline](../../install-offline/grype-offline-airgap.hbs.md) for details.
+3. Host a `grype` database in the air-gapped environment. For more information, see [Use Grype in offline and air-gapped environments](../../install-offline/grype-offline-airgap.hbs.md).
 
 ## <a id='create-a-new-git-repository'></a>Create a new Git repository
 
@@ -236,7 +236,7 @@ Follow these steps to customize your Tanzu Application Platform cluster configur
 
 ### <a id='grant-read-access-to-secret-data'></a>Grant read access to secret data
 
-AWS Secrets Manager secrets store all sensitive configurations, which are accessed by both 
+AWS Secrets Manager secrets store all sensitive configurations, which are accessed by both
 Tanzu Sync and the Tanzu Application Platform installation.
 
 Follow these step to configure the [IAM Role for a Service Account](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html):
@@ -345,7 +345,7 @@ Follow these steps to create the sensitive configuration and review the non-sens
         - `CLUSTER-NAME` is the name as it appears in `eksctl get clusters`.
         - `username` is the username of a user account with read access to the Git repository.
         - `password` is the password or personal access token for the user.
-    
+
 1. To securely store the authentication credentials required for accessing the OCI registry that hosts the Tanzu Application Platform images, create a secret called `dev/CLUSTER-NAME/tanzu-sync/install-registry-dockerconfig`. This secret contains the following information in plaintext:
 
     ```json
@@ -619,7 +619,7 @@ Follow these steps to split the Tanzu Application Platform values:
     ...
     ```
 
-    If installing Tanzu Application Service in an offline environment. Ensure `Tanzu Build Service` and `Grype` are configured to work in an airgapped environment:
+    To install Tanzu Application Service in an offline environment, you must configure `Tanzu Build Service` and `Grype` to work in an air-gapped environment:
 
     ```yaml
     ---
@@ -635,7 +635,7 @@ Follow these steps to split the Tanzu Application Platform values:
 
     Where:
 
-    - `INTERNAL-VULN-DB-URL` URL that points to the internal file server.
+    - `INTERNAL-VULN-DB-URL` is the URL that points to the internal file server.
 
     For more information, see [Components and installation profiles](../../about-package-profiles.hbs.md).
 
@@ -691,7 +691,7 @@ the AWS Secrets Store secret created in the [Review and store Tanzu Application 
 
     When moving values, you must omit the `tap_install.values` root,
     but keep the remaining structure.
-    All of the parent keys, such as `ootb_supply_chain_basic.gitops` and `ssh_secret`, 
+    All of the parent keys, such as `ootb_supply_chain_basic.gitops` and `ssh_secret`,
     must be copied to the sensitive value YAML.
 
 1. Commit and push the Tanzu Application Platform values:

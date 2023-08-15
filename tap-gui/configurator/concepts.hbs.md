@@ -1,7 +1,8 @@
 # Tanzu Developer Portal Configurator Concepts
 
-This topic gives you conceptual overviews of how Tanzu Developer Portal
-(formerly named Tanzu Application Platform GUI) Configurator works.
+This topic gives you conceptual overviews of how Tanzu Developer Portal Configurator works.
+
+> **Caution** The Configurator tool is in beta. Do not use it in a production environment.
 
 ## <a id="customize"></a> Overview of how to customize your portal
 
@@ -63,12 +64,12 @@ the build process to incorporate external plug-ins.
 ## <a id="plug-ins"></a> Internal plug-ins and external plug-ins
 
 Internal plug-ins are included inside the Tanzu Developer Portal Configurator Foundation image.
-These include Tanzu Application Platform plug-ins as well as [Backstage](https://backstage.io) core
+These include Tanzu Application Platform plug-ins and [Backstage](https://backstage.io) core
 plug-ins.
 
-External plug-ins are not in the Tanzu Developer Portal Configurator Foundation image. They are added
-from external registries. They can include custom plug-ins as well as
-[third-party Backstage plug-ins](https://backstage.io/plugins/).
+External plug-ins are not in the Tanzu Developer Portal Configurator Foundation image. They are
+added from the external registry [npmjs.com](https://www.npmjs.com/). They can include custom
+plug-ins and [third-party Backstage plug-ins](https://backstage.io/plugins/).
 
 ### <a id="surfaces-and-wrappers"></a> Plug-in surfaces and wrappers
 

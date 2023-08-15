@@ -1,7 +1,6 @@
 # Troubleshoot Tanzu Developer Portal
 
-This topic tells you how to troubleshoot issues encountered when installing Tanzu Developer Portal
-(formerly called Tanzu Application Platform GUI).
+This topic tells you how to troubleshoot issues encountered when installing Tanzu Developer Portal.
 
 ## <a id='port-range-invalid'></a> Tanzu Developer Portal reports that the port range is not valid
 
@@ -359,7 +358,11 @@ app_config:
       - host: acc-server.accelerator-system.svc.cluster.local
 ```
 
-### <a id='ivs-support'></a> Supporting ImageVulnerabilityScans
+## <a id='ivs-support'></a> Supporting ImageVulnerabilityScan
+
+The following troubleshooting issues concern `ImageVulnerabilityScan`.
+
+### <a id='no-vulnerabilities'></a> No Vulnerability data
 
 #### Symptom
 
@@ -425,6 +428,32 @@ overlays work with Tanzu Application Platform, see
    ```console
    tanzu package installed update tap -p tap.tanzu.vmware.com -n tap-install --values-file tap-values.yaml
    ```
+
+### <a id='no-scanner-name'></a> Scanner name not shown in Tanzu Developer Portal for SCST - Scan 2.0
+
+#### Symptom
+
+SCST - Scan 2.0 is enabled and the scanner name in the Security Analysis and Supply Chain Choreographer
+dashboards does not appear.
+
+#### Cause
+
+The `ImageVulnerabilityScan` custom resource lacks the required annotation for Tanzu Developer Portal
+to detect it.
+
+#### Solution
+
+Add the `app-scanning.apps.tanzu.vmware.com/scanner-name` annotation to `ImageVulnerabilityScan`:
+
+```yaml
+apiVersion: app-scanning.apps.tanzu.vmware.com/v1alpha1
+kind: ImageVulnerabilityScan
+metadata:
+  annotations:
+    app-scanning.apps.tanzu.vmware.com/scanner-name: SCANNER-NAME
+```
+
+Where `SCANNER-NAME` is the name that is reported in Tanzu Developer Portal.
 
 ## Security Analysis plug-in
 

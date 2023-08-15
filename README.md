@@ -9,20 +9,21 @@ This repo contains the content for Tanzu Application Platform docs.
 | Branch | Staging | Production |
 |--------|---------|------------|
 | main   | [Staging](https://docs-staging.vmware.com/en/draft/VMware-Tanzu-Application-Platform/1.7/tap/overview.html) (Pre-release v1.7 docs) | n/a |
-| 1-6-2  | [Staging](https://docs-staging.vmware.com/en/draft/VMware-Tanzu-Application-Platform/1.6.2/tap/overview.html) (Pre-release v1.6.2 docs) | n/a |
-| 1-6-1  | [Staging](https://docs-staging.vmware.com/en/VMware-Tanzu-Application-Platform/1.6/tap/overview.html) | [Production](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.6/tap/overview.html) |
-| 1-5-4  | [Staging](https://docs-staging.vmware.com/en/draft/VMware-Tanzu-Application-Platform/1.5.4/tap/overview.html) (Pre-release v1.5.4 docs) | n/a |
-| 1-5-3  | [Staging](https://docs-staging.vmware.com/en/VMware-Tanzu-Application-Platform/1.5/tap/overview.html) | [Production](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.5/tap/overview.html) |
+| 1-6-3  | [Staging](https://docs-staging.vmware.com/en/draft/VMware-Tanzu-Application-Platform/1.6.3/tap/overview.html) (Pre-release v1.6.3 docs) | n/a |
+| 1-6-2  | [Staging](https://docs-staging.vmware.com/en/VMware-Tanzu-Application-Platform/1.6/tap/overview.html) | [Production](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.6/tap/overview.html) |
+| 1-6-1  | Not in use. Do not PR to this branch. | Not in use. Do not PR to this branch. |
+| 1-5-5  | [Staging](https://docs-staging.vmware.com/en/draft/VMware-Tanzu-Application-Platform/1.5.5/tap/overview.html) (Pre-release v1.5.5 docs) | n/a |
+| 1-5-4  | [Staging](https://docs-staging.vmware.com/en/VMware-Tanzu-Application-Platform/1.5/tap/overview.html) | [Production](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.5/tap/overview.html) |
+| 1-5-3  | Not in use. Do not PR to this branch. | Not in use. Do not PR to this branch. |
 | 1-5-2  | Not in use. Do not PR to this branch. | Not in use. Do not PR to this branch. |
-| 1-5-1  | Not in use. Do not PR to this branch. | Not in use. Do not PR to this branch. |
-| 1-4-8  | [Staging](https://docs-staging.vmware.com/en/draft/VMware-Tanzu-Application-Platform/1.4.8/tap/overview.html) (Pre-release v1.4.8 docs) | n/a |
-| 1-4-7  | [Staging](https://docs-staging.vmware.com/en/VMware-Tanzu-Application-Platform/1.4/tap/overview.html) | [Production](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.4/tap/overview.html) |
+| 1-4-9  | [Staging](https://docs-staging.vmware.com/en/draft/VMware-Tanzu-Application-Platform/1.4.9/tap/overview.html) (Pre-release v1.4.9 docs) | n/a |
+| 1-4-8  | [Staging](https://docs-staging.vmware.com/en/VMware-Tanzu-Application-Platform/1.4/tap/overview.html) | [Production](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.4/tap/overview.html) |
+| 1-4-7  | Not in use. Do not PR to this branch. | Not in use. Do not PR to this branch. |
 | 1-4-6  | Not in use. Do not PR to this branch. | Not in use. Do not PR to this branch. |
-| 1-4-5  | Not in use. Do not PR to this branch. | Not in use. Do not PR to this branch. |
-| 1-3-11  | [Staging](https://docs-staging.vmware.com/en/draft/VMware-Tanzu-Application-Platform/1.3.11/tap/overview.html) (Pre-release v1.3.11 docs) | n/a |
-| 1-3-10  | [Staging](https://docs-staging.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-overview.html) | [Production](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-overview.html) |
+| 1-3-12 | [Staging](https://docs-staging.vmware.com/en/draft/VMware-Tanzu-Application-Platform/1.3.12/tap/overview.html) (Pre-release v1.3.12 docs) | n/a |
+| 1-3-11 | [Staging](https://docs-staging.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-overview.html) | [Production](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-overview.html) |
+| 1-3-10 | Not in use. Do not PR to this branch. | Not in use. Do not PR to this branch. |
 | 1-3-9  | Not in use. Do not PR to this branch. | Not in use. Do not PR to this branch. |
-| 1-3-8  | Not in use. Do not PR to this branch. | Not in use. Do not PR to this branch. |
 | 1-2-2  | [Staging](https://docs-staging.vmware.com/en/VMware-Tanzu-Application-Platform/1.2/tap/GUID-overview.html) | [Production](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.2/tap/GUID-overview.html) |
 | 1-1    | [Staging](https://docs-staging.vmware.com/en/VMware-Tanzu-Application-Platform/1.1/tap/GUID-overview.html) | [Production](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.1/tap/GUID-overview.html) |
 | 1-0    | [Staging](https://docs-staging.vmware.com/en/VMware-Tanzu-Application-Platform/1.0/tap/GUID-overview.html) | [Production](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.0/tap/GUID-overview.html) |
@@ -34,7 +35,6 @@ stored in dedicated repositories.
 
 | Component | Repo |
 |-----------|------|
-| API Auto Registration | https://gitlab.eng.vmware.com/tap-api-first/api-auto-registration |
 | API portal | https://github.com/pivotal-cf/docs-api-portal |
 | Application Configuration Service | https://github.com/pivotal-cf/docs-application-configuration-service |
 | Carvel | https://github.com/vmware-tanzu/carvel/tree/develop/site/content |
@@ -112,6 +112,7 @@ Use this table to keep a running list of terms used and how they should be defin
 | PackageRepositories | Don't use. There is really only one packageRepository of interest for this page. |
 | packageRepository custom resource | Because we don't use CR in other Kubernetes docs, spell out custom resource here too. An example of the packageRepository custom resource is given in the YAML file named `tap-package-repo.yaml`.|
 | packageRepository pull | Just means pulling the packages from the repository|
+| Services Toolkit | Do not use abbreviation STK |
 | Tanzu Kubernetes Grid | Never use TKGm or TKG in customer-facing documentation. |
 | Tanzu Service CLI plug-in | Do not use `tanzu service` CLI or Tanzu Services CLI plug-in (with an "s") |
 | TAP repo bundle | Decided on lowercase and not "TAP Repo Bundle".|

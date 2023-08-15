@@ -1,7 +1,6 @@
 # Tanzu Application Platform
 <!-- Your Markdown linter might tell you to fix the 4-tab indentation for the sublists (relative to the list items above). Don't. For more information, see https://confluence.eng.vmware.com/display/CSOT/Formatting+best+practices. -->
-This is the table of contents from which the Tanzu Application Platform Documentation site on
-docs.vmware.com is built.
+
 
 - [Tanzu Application Platform v{{ vars.url_version }}](overview.hbs.md)
 - [Release notes](release-notes.hbs.md)
@@ -255,7 +254,9 @@ docs.vmware.com is built.
         - [API Auto Registration overview](api-auto-registration/about.hbs.md)
         - [Key concepts](api-auto-registration/key-concepts.hbs.md)
         - [Install API Auto Registration](api-auto-registration/installation.hbs.md)
+        - [Configure API Auto Registration](api-auto-registration/configuration.hbs.md)
         - [Use API Auto Registration](api-auto-registration/usage.hbs.md)
+        - [API Curation](api-auto-registration/api-curation.hbs.md)
         - [Troubleshoot API Auto Registration](api-auto-registration/troubleshooting.hbs.md)
     - [API portal for VMware Tanzu](api-portal/about.hbs.md)
         - [API portal overview](api-portal/about.hbs.md)
@@ -667,7 +668,7 @@ docs.vmware.com is built.
           - [Create a service account with a custom cluster role](scst-store/custom-role.hbs.md)
           - [Install Supply Chain Security Tools - Store](scst-store/install-scst-store.hbs.md)
           - [Prerequisite for Stand alone SCST-Store installation](scst-store/standalone-install-scst-store-prereq.hbs.md)
-    - [Tanzu Developer Portal (formerly Tanzu Application Platform GUI)](tap-gui/about.hbs.md)
+    - [Tanzu Developer Portal](tap-gui/about.hbs.md)
       - [Tanzu Developer Portal overview](tap-gui/about.hbs.md)
       - [Install Tanzu Developer Portal](tap-gui/install-tap-gui.hbs.md)
       - [Customize Tanzu Developer Portal](tap-gui/customize/customize-portal.hbs.md)
@@ -688,12 +689,11 @@ docs.vmware.com is built.
       - [Add integrations](tap-gui/integrations.hbs.md)
       - [Database configuration](tap-gui/database.hbs.md)
       - [Generate and publish TechDocs](tap-gui/techdocs/usage.hbs.md)
-      - [Tanzu Developer Portal Configurator](tap-gui/configurator/about.hbs.md)
+      - [Tanzu Developer Portal Configurator (beta)](tap-gui/configurator/about.hbs.md)
          - [Overview](tap-gui/configurator/about.hbs.md)
          - [Concepts](tap-gui/configurator/concepts.hbs.md)
          - [Build your customized Tanzu Developer Portal](tap-gui/configurator/building.hbs.md)
          - [Run your customized Tanzu Developer Portal](tap-gui/configurator/running.hbs.md)
-         - [Add external plugins to your customized Tanzu Developer Portal](tap-gui/configurator/external-plugins.hbs.md)
          - [Troubleshoot Tanzu Developer Portal Configurator](tap-gui/configurator/troubleshooting.hbs.md)
       - [Tanzu Developer Portal plug-ins](tap-gui/plugins/about.hbs.md)
          - [Tanzu Developer Portal plug-ins overview](tap-gui/plugins/about.hbs.md)

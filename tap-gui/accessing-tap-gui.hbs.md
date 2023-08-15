@@ -1,7 +1,6 @@
 # Access Tanzu Developer Portal
 
-This topic tells you how to access Tanzu Developer Portal
-(formerly called Tanzu Application Platform GUI) by using one of the following methods:
+This topic tells you how to access Tanzu Developer Portal by using one of the following methods:
 
 - Access with the LoadBalancer method (default)
 - Access with the shared Ingress method
@@ -93,7 +92,7 @@ instance of Contour that is installed as part of the Profile installation.
 1. Update your package installation with your changed `tap-values.yaml` file by running:
 
     ```console
-    tanzu package installed update tap --package-name tap.tanzu.vmware.com --version VERSION-NUMBER \
+    tanzu package installed update tap --package tap.tanzu.vmware.com --version VERSION-NUMBER \
     --values-file tap-values.yaml -n tap-install
     ```
 
